@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.containerInput {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: fit-content;
+  margin: 30px auto;
+}
+
+.input input, .input label {
+  color: white;
+}
+
+.input fieldset {
+  border-color: #555;
+  transition: 0.2s linear;
+}
+
+.input > div:hover fieldset {
+  border-color: white !important;
+}
+
+@media screen and (max-width: 767px) {
+  .input {
+    width: 350px !important;
+  }
+}

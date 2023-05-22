@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.card {
+  width: 500px;
+}
+
+.image {
+  width: 100%;
+}
+
+.titlePost {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 23px;
+  margin: 10px 0;
+}
+
+.discPost {
+  padding: 0 0 0 20px;
+  font-size: 18px;
+  text-align: start;
+}
+
+.buttonPost {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 300px;
+  }
+  .titlePost {
+    font-size: 20px;
+  }
+  .discPost {
+    font-size: 15px;
+  }
+  .button {
+    padding: 5px;
+    font-size: 12px;
+  }
+}
