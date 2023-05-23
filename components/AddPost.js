@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import AlertPop from "./Alert";
 import { useRouter } from "next/router";
+import domain from "@/utils/config";
 
 function AddPost() {
   const [titlePost, setTitlePost] = useState("");
@@ -25,7 +26,7 @@ function AddPost() {
     if (!titlePost || !imgPost || !discPost) {
       setSent("false");
     } else {
-      await axios.post("http://localhost:3000/api/posts", dataPost);
+      await axios.post(`${domain}/posts`, dataPost);
       setSent("true");
       router.push("/");
     }
