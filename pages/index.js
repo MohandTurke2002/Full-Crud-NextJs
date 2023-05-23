@@ -1,8 +1,6 @@
 import Post from "@/components/Post";
 import Container from "@mui/material/Container";
 import styles from "../styles/posts.module.css";
-import axios from "axios";
-import domain from "@/utils/config";
 
 function Home({ post }) {
   if (post.length) {
@@ -25,7 +23,9 @@ function Home({ post }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`${domain}/posts`);
+  const res = await fetch(
+    "https://blog-api-mohandturke2002.vercel.app/api/posts"
+  );
   const { post } = await res.json();
   return { props: { post } };
 };
