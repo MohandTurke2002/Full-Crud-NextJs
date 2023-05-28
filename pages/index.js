@@ -2,8 +2,20 @@ import Post from "@/components/Post";
 import Container from "@mui/material/Container";
 import styles from "../styles/posts.module.css";
 import domain from "@/utils/config";
+import { useState } from "react";
 
-function Home({ post }) {
+function Home() {
+  const [post, setPost] = useState([]);
+  const getPosts = async () => {
+    try {
+      const res = await fetch(`${domain}/api/posts`);
+      const { post } = await res.json();
+      setPost(post);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  getPosts();
   if (post.length) {
     return (
       <Container className={styles.container}>
@@ -23,10 +35,10 @@ function Home({ post }) {
   }
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch(`${domain}/api/posts`);
-  const { post } = await res.json();
-  return { props: { post } };
-};
+// export const getStaticProps = async () => {
+//   const res = await fetch(`${domain}/api/posts`);
+//   const { post } = await res.json();
+//   return { props: { post } };
+// };
 
 export default Home;
