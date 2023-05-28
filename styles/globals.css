@@ -19,7 +19,7 @@ body {
 
 .page {
   height: 100vh;
-  display: flex;
+  display: flex !important;
   flex-direction: column;
   justify-content: space-between;
 }
