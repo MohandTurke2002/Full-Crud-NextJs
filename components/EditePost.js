@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import AlertPop from "./Alert";
 import { useRouter } from "next/router";
+import domain from "@/utils/config";
 
 function EditePost({ data }) {
   const [titlePost, setTitlePost] = useState(data.titlePost);
@@ -25,10 +26,7 @@ function EditePost({ data }) {
     if (!titlePost || !imgPost || !discPost) {
       setUpdate("false");
     } else {
-      await axios.put(
-        `https://blog-api-mohandturke2002.vercel.app/api/posts/${data._id}`,
-        dataPost
-      );
+      await axios.put(`${domain}/api/posts/${data._id}`, dataPost);
       setUpdate("true");
       router.push("/");
     }

@@ -3,13 +3,12 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import styles from "../styles/posts.module.css";
 import axios from "axios";
 import { useRouter } from "next/router";
+import domain from "@/utils/config";
 
 function Post({ id, titlePost, imgPost, discPost }) {
   const router = useRouter();
   const deletePost = async () => {
-    await axios.delete(
-      `https://blog-api-mohandturke2002.vercel.app/api/posts/${id}`
-    );
+    await axios.delete(`${domain}/api/posts/${id}`);
     router.push("/");
   };
   const goToEdite = () => {

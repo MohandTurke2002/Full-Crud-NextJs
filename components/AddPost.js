@@ -7,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import AlertPop from "./Alert";
 import { useRouter } from "next/router";
+import domain from "@/utils/config";
 
 function AddPost() {
   const [titlePost, setTitlePost] = useState("");
@@ -25,10 +26,7 @@ function AddPost() {
     if (!titlePost || !imgPost || !discPost) {
       setSent("false");
     } else {
-      await axios.post(
-        `https://blog-api-mohandturke2002.vercel.app/api/posts`,
-        dataPost
-      );
+      await axios.post(`${domain}/api/posts`, dataPost);
       setSent("true");
       router.push("/");
     }
